@@ -14,4 +14,4 @@ if (NOT VCPKG_PATH)
 endif()
 
 add_library(loop-optimize STATIC src/loop_optimize.cpp)
-target_include_directories(loop_optimize 3rd-party/libsimdpp/)
+target_include_directories(loop-optimize PUBLIC 3rd-party/libsimdpp/)
