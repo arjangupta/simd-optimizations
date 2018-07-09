@@ -2,6 +2,6 @@
 
 int main()
 {
-	std::cout << "Loop optimizations" << std::endl;
-	return 0;
+    std::cout << "Loop optimizations" << std::endl;
+    return 0;
 }
