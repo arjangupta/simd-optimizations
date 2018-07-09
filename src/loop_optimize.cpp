@@ -1,7 +1,15 @@
-#include <iostream>
+#include "loop_optimize.h"
 
-int main()
+namespace simd_optimizations
 {
-    std::cout << "Loop optimizations" << std::endl;
-    return 0;
-}
+    float calculateNormalLoop(const float* arr1, const float* arr2, int size)
+    {
+        return 0.0;
+    }
+
+    float calculateOptimizedLoop(const float* arr1, const float* arr2, int size)
+    {
+        return 0.0;
+    }
+    
+} //end namespace simd_optimizations
