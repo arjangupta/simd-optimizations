@@ -2,12 +2,12 @@
 
 namespace simd_optimizations
 {
-    float calculateNormalLoop(const float* arr1, const float* arr2, size_t size)
+    float calculateNormalLoop(const float* arr1, const float* arr2, std::size_t size)
     {
         return 0.0;
     }
 
-    float calculateOptimizedLoop(const float* arr1, const float* arr2, size_t size)
+    float calculateOptimizedLoop(const float* arr1, const float* arr2, std::size_t size)
     {
         return 0.0;
     }
