@@ -31,7 +31,7 @@ TEST(loopOptimizeUnitTest, timingTests)
 
 	std::chrono::microseconds time_normal_loop = 
 			std::chrono::duration_cast<std::chrono::microseconds>(end - begin);
-	std::cout << "Normal loop took " << time_normal_loop << " microsec\n";
+	std::cout << "Normal loop took " << time_normal_loop.count() << " microsec\n";
 
 	//Time optimized loop
 	begin = std::chrono::steady_clock::now();
@@ -40,7 +40,7 @@ TEST(loopOptimizeUnitTest, timingTests)
 
 	std::chrono::microseconds time_optim_loop = 
 			std::chrono::duration_cast<std::chrono::microseconds>(end - begin);
-	std::cout << "Optimized loop took " << time_optim_loop << " microsec\n";
+	std::cout << "Optimized loop took " << time_optim_loop.count() << " microsec\n";
 
 	EXPECT_EQ(normal_loop_result, optimized_loop_result);
 	EXPECT_GT(normal_loop_result, optimized_loop_result);
