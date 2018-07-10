@@ -21,13 +21,14 @@ namespace simd_optimizations
     float calculateOptimizedLoop(const float* arr1, const float* arr2, std::size_t size)
     {
         float result = 0;
+        const int data_points = 8;
 
-        for (size_t i = 0; i < size; i += 4)
+        for (size_t i = 0; i < size; i += data_points)
         {
-            simdpp::float32<4> arr1_simdvec = simdpp::load(arr1 + i);
-            simdpp::float32<4> arr2_simdvec = simdpp::load(arr2 + i);
-            simdpp::float32<4> diff = simdpp::sub(arr1_simdvec, arr2_simdvec);
-            simdpp::float32<4> squares = simdpp::mul(diff, diff);
+            simdpp::float32<data_points> arr1_simdvec = simdpp::load(arr1 + i);
+            simdpp::float32<data_points> arr2_simdvec = simdpp::load(arr2 + i);
+            simdpp::float32<data_points> diff = simdpp::sub(arr1_simdvec, arr2_simdvec);
+            simdpp::float32<data_points> squares = simdpp::mul(diff, diff);
             result += simdpp::reduce_add(squares);
         }
 
