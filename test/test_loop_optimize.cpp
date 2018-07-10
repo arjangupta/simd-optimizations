@@ -10,7 +10,7 @@ using namespace simd_optimizations;
 TEST(loopOptimizeUnitTest, timingTests)
 {
 	//Data
-	size_t arr_size = 5000;
+	size_t arr_size = 296046 * 634;
 	float* arr1 = new float[arr_size];
 	float* arr2 = new float[arr_size];
 
