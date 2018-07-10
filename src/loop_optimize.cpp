@@ -21,7 +21,7 @@ float calculateNormalLoop(const float* arr1, const float* arr2, std::size_t size
 float calculateOptimizedLoop(const float* arr1, const float* arr2, std::size_t size)
 {
     float result = 0;
-    const int data_points = 8;
+    const int data_points = SIMDPP_FAST_FLOAT32_SIZE;
 
     for (size_t i = 0; i < size; i += data_points)
     {
