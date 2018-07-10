@@ -18,7 +18,7 @@ TEST(loopOptimizeUnitTest, timingTests)
 	{
 		//Arbitrarily chosen functions
 		arr1[i] = sin(i);
-		arr2[i] = cos(i);
+		arr2[i] = tan(i);
 	}
 
 	//Timing vars
