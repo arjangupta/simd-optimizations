@@ -33,3 +33,6 @@ target_include_directories(loop_optimize PUBLIC 3rd-party/libsimdpp/)
 add_executable(test_loop_optimize test/test_loop_optimize.cpp)
 target_include_directories(test_loop_optimize PUBLIC src)
 target_link_libraries(test_loop_optimize PUBLIC GTest::GTest GTest::Main loop_optimize)
+
+add_executable(simple_float_array src/simple_float_array.cpp)
+target_link_libraries(simple_float_array PUBLIC GTest::GTest GTest::Main loop_optimize)
