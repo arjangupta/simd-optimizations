@@ -1,3 +1,3 @@
-### Programs written with SIMD Optimizations
+### Programs written with SIMD optimizations
 
-Optimizations written using the [libsimdpp](https://github.com/p12tic/libsimdpp) header-only library.
+The [libsimdpp](https://github.com/p12tic/libsimdpp) header-only library was used for this.
