@@ -20,19 +20,22 @@ float calculateNormalLoop(const float* arr1, const float* arr2, std::size_t size
 
 float calculateOptimizedLoop(const float* arr1, const float* arr2, std::size_t size)
 {
-    float result = 0;
     const int data_points = SIMDPP_FAST_FLOAT32_SIZE;
 
-    for (size_t i = 0; i < size; i += data_points)
+    simdpp::float32<data_points>* arr1_ptr = (simdpp::float32<data_points>*) arr1;
+    simdpp::float32<data_points>* arr2_ptr = (simdpp::float32<data_points>*) arr2;
+
+    size /= data_points;
+
+    simdpp::float32<data_points> sum = simdpp::splat(0);
+
+    for (size_t i = 0; i < size; ++i)
     {
-        simdpp::float32<data_points> arr1_simdvec = simdpp::load(arr1 + i);
-        simdpp::float32<data_points> arr2_simdvec = simdpp::load(arr2 + i);
-        simdpp::float32<data_points> diff = simdpp::sub(arr1_simdvec, arr2_simdvec);
-        simdpp::float32<data_points> squares = simdpp::mul(diff, diff);
-        result += simdpp::reduce_add(squares);
+        simdpp::float32<data_points> diff = arr1_ptr[i] - arr2_ptr[i];
+        sum = sum + (diff * diff);
     }
 
-    return result;
+    return simdpp::reduce_add(sum);
 }
 
 } //end namespace simd_optimizations
